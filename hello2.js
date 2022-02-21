@@ -1,0 +1,1 @@
+console.log("hihihihi fintech arcardemy");
