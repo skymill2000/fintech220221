@@ -24,3 +24,6 @@ for (let i = 0; i < cars.length; i++) {
 cars.map((car) => {
   console.error(car);
 });
+
+//ㅈㅏ바
+//for(String a : StringArray)
