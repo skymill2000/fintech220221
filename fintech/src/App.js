@@ -1,21 +1,19 @@
-import logo from "./logo.svg";
-import "./App.css";
+const Welcome = (props) => {
+  console.log(props);
+  return (
+    <div>
+      안녕하세요 {props.age}세 {props.username} 님 반갑습니다!
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>오 이걸 바꾸면 ?.</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Welcome username="홍길동" age="22"></Welcome>
+      <Welcome username="홍길동" age="22"></Welcome>
+      <Welcome username="홍길동" age="22"></Welcome>
+      <Welcome username="홍길동" age="22"></Welcome>
     </div>
   );
 }
