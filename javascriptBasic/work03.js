@@ -33,6 +33,12 @@ let car3 = {
 
 let cars = [car1, car2, car3];
 
+cars.map((car) => {
+  if (car.name === "bmw") {
+    console.log("차량이 있습니다");
+  }
+});
+
 //#work3 배열 내 bmw 라는 이름을 가진 차량이 존재 할때 "차량이 있습니다" 텍스트를 출력
 // if({condition}){
 // }
