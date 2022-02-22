@@ -1,5 +1,6 @@
 //method, func 선언 예전방식
 function test(p1, p2){
+    console.log(this);
     return p1 + p2;
 }
 
@@ -7,6 +8,7 @@ let result = test(5,5)
 console.log(result);
 
 const plus = (p1, p2) =>{
+    console.log(this);
     return p1 + p2;
 }
 
