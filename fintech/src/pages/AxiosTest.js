@@ -6,7 +6,9 @@ const AxiosTest = () => {
   const handleClick = () => {
     console.log("click");
     axios
-      .get("https://naver.com")
+      .get(
+        "https://newsapi.org/v2/everything?q=tesla&from=2022-01-23&sortBy=publishedAt&apiKey=78bc6ddd8cdb48ceac76f5f9b9dfc4c5"
+      )
       .then((response) => {
         console.log(response);
       })
