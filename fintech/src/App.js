@@ -1,12 +1,17 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import ListComponent from "./components/ListComponent";
 import HeaderWhite from "./components/HeaderWhite";
 
 function App() {
   return (
-    <div>
-      <HeaderWhite title="환경설정" />
-      <ListComponent></ListComponent>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/test" exact>
+          <ListExmaple></ListExmaple>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
