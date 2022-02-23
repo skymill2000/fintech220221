@@ -4,7 +4,7 @@ const SearchInput = ({ handleChange, handleClick }) => {
   return (
     <div>
       <input onChange={handleChange}></input>
-      <button>검색</button>
+      <button onClick={handleClick}>검색</button>
     </div>
   );
 };
