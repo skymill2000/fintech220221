@@ -1,17 +1,13 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ListComponent from "./components/ListComponent";
-import HeaderWhite from "./components/HeaderWhite";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/test" exact>
-          <ListExmaple></ListExmaple>
-        </Route>
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/test" element={<ListComponent />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
