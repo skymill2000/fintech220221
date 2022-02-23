@@ -7,8 +7,12 @@ const NewsApiPage = () => {
   const [searchText, setSearchText] = useState("");
   const [searchResultList, setSearchResultList] = useState([]);
 
-  const handleSearchTextChange = () => {
+  const handleSearchTextChange = (e) => {
     //   input 변경사항을 search Text 반영
+    const { value } = e.target;
+    console.log(value);
+    setSearchText(value);
+    console.log("searchText : ", searchText);
   };
 
   const handleSearchButtonClick = () => {

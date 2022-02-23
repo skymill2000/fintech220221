@@ -1,9 +1,9 @@
 import React from "react";
 
-const SearchInput = () => {
+const SearchInput = ({ handleChange, handleClick }) => {
   return (
     <div>
-      <input></input>
+      <input onChange={handleChange}></input>
       <button>검색</button>
     </div>
   );
