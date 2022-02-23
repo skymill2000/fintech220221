@@ -10,8 +10,8 @@ const HeaderBlock = styled.div`
   /* background-color: #1c6ea4; */
 `;
 
-const HeaderWhite = (props) => {
-  return <HeaderBlock>{props.title}</HeaderBlock>;
+const HeaderWhite = ({ title }) => {
+  return <HeaderBlock>{title}</HeaderBlock>;
 };
 
 export default HeaderWhite;
