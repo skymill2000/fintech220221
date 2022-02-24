@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HeaderWhite from "../components/HeaderWhite";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
@@ -10,6 +10,10 @@ const AuthResult = () => {
   const [accessToken, setaccessToken] = useState("토큰을 받기 전입니다.");
   const [userSeqNo, setuserSeqNo] = useState("사용자 번호");
   console.log(code);
+
+  useEffect(() => {
+    getAccessToken();
+  }, []);
 
   const getAccessToken = () => {
     const sendData = {
@@ -40,6 +44,8 @@ const AuthResult = () => {
         const userSeqNo = data.user_seq_no;
         setaccessToken(accessToken);
         setuserSeqNo(userSeqNo);
+        localStorage.setItem("accessToken", data.access_token);
+        localStorage.setItem("userSeqNo", data.user_seq_no);
       }
     });
   };
