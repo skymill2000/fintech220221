@@ -36,7 +36,7 @@ const AuthResult = () => {
       <p>인증코드 : {parsedResult.code}</p>
       <p>AccessToken : {accessToken}</p>
       <p>사용자번호 : {userSeqNo}</p>
-      <button onClick={getAccessToken()}>토큰 요청</button>
+      <button onClick={getAccessToken}>토큰 요청</button>
     </div>
   );
 };
