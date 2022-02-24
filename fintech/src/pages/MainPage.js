@@ -13,12 +13,16 @@ const MainPage = () => {
     const accessToken = localStorage.getItem("accessToken");
     const userSeqNo = localStorage.getItem("userSeqNo");
 
-    const sendData = {};
+    const sendData = {
+      user_seq_no: userSeqNo,
+    };
 
     const option = {
       method: "GET",
-      url: "",
-      headers: {},
+      url: "/v2.0/user/me",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
       params: sendData, //object
     };
 
