@@ -4,6 +4,7 @@ import Welcome from "./components/Welcome";
 import AuthPage from "./pages/AuthPage";
 import AuthResult from "./pages/AuthResult";
 import AxiosTest from "./pages/AxiosTest";
+import MainPage from "./pages/MainPage";
 import NewsApiPage from "./pages/NewsApiPage";
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/authResult" element={<AuthResult />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/main" element={<MainPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
