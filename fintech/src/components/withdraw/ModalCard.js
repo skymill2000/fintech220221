@@ -41,6 +41,7 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
 
   const handleWithdraw = () => {
     //axios call
+    //출금 이체 API 요청 작성하기
   };
 
   const deposit = () => {};
