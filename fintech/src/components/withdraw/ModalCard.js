@@ -99,8 +99,10 @@ const ModalCard = ({ bankName, fintechUseNo, tofintechno }) => {
         },
       ],
     };
+
     const twoLeggedToken =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJUOTkxNTk5MTkwIiwic2NvcGUiOlsib29iIl0sImlzcyI6Imh0dHBzOi8vd3d3Lm9wZW5iYW5raW5nLm9yLmtyIiwiZXhwIjoxNjUzNTQ5OTQ4LCJqdGkiOiIwZjIyOTM4NS01MmUxLTQ2ZDgtOGRhMS1mMGY4N2M3MGU3YmIifQ.vY-JJ9ASD6b8So1_z0ehc7pZKexwyUowyhMtKpEBmnc";
+
     const option = {
       method: "POST",
       url: "/v2.0/transfer/deposit/fin_num",
