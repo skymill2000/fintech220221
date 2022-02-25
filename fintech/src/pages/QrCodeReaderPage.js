@@ -1,30 +1,51 @@
 import React, { useState } from "react";
-import HeaderWhite from "../components/HeaderWhite";
 import QrReader from "react-web-qr-reader";
+import Modal from "react-modal";
+import HeaderWhite from "../components/HeaderWhite";
+import ModalWithdraw from "../components/withdraw/ModalWithdraw";
+const CustomStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    zIndex: "9",
+  },
+  content: {
+    width: "95%",
+    border: `0 solid black`,
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: "99999",
+  },
+};
 
-const QrCodeReaderPage = () => {
+const QrReaderPage = () => {
+  const [openModal, setOpenModal] = useState(false); //no camera : true
+  const [result, setResult] = useState("No result"); //no camera : 돈을 송금할 대상 계좌
+
   const delay = 500;
-
   const previewStyle = {
-    height: 240,
-    width: 390,
+    height: 375,
+    width: 375,
   };
 
-  const [result, setResult] = useState("No result");
-
   const handleScan = (result) => {
-    if (result) {
-      setResult(result);
-    }
+    console.log(result);
+    setResult(result.data);
+    setOpenModal(true);
   };
 
   const handleError = (error) => {
     console.log(error);
   };
-
+  const closeModal = () => {
+    setOpenModal(false);
+  };
   return (
-    <div>
-      <HeaderWhite title="QR 코드 리더"></HeaderWhite>
+    <>
+      <HeaderWhite title="qr 코드 읽기"></HeaderWhite>
       <QrReader
         delay={delay}
         style={previewStyle}
@@ -32,8 +53,16 @@ const QrCodeReaderPage = () => {
         onScan={handleScan}
       />
       <p>{result}</p>
-    </div>
+      <Modal
+        isOpen={openModal}
+        style={CustomStyles}
+        onRequestClose={closeModal}
+        ariaHideApp={false}
+      >
+        <ModalWithdraw tofintechno={result}></ModalWithdraw>
+      </Modal>
+    </>
   );
 };
 
-export default QrCodeReaderPage;
+export default QrReaderPage;
