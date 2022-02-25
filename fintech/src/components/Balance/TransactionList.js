@@ -13,16 +13,17 @@ const TransactionList = ({ transactionList }) => {
           </tr>
         </thead>
         <tbody>
-          {transactionList.map((transaction, index) => {
-            return (
-              <tr key={index}>
-                <td>{transaction.tran_date}</td>
-                <td>{transaction.print_content}</td>
-                <td>{transaction.tran_amt}</td>
-                <td>{transaction.after_balance_amt}</td>
-              </tr>
-            );
-          })}
+          {transactionList.length > 0 &&
+            transactionList.map((transaction, index) => {
+              return (
+                <tr key={index}>
+                  <td>{transaction.tran_date}</td>
+                  <td>{transaction.print_content}</td>
+                  <td>{transaction.tran_amt}</td>
+                  <td>{transaction.after_balance_amt}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>
