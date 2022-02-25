@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import HeaderWhite from "../components/HeaderWhite";
 import BalanceCard from "../components/Balance/BalanceCard";
+import TransactionList from "../components/Balance/TransactionList";
 
 const BalancePage = () => {
   console.log(useLocation());
@@ -83,13 +84,7 @@ const BalancePage = () => {
         fintechNo={balance.fintech_use_num}
         balance={balance.balance_amt}
       ></BalanceCard>
-      {transactionList.map((transaction) => {
-        return (
-          <p>
-            {transaction.print_content} / {transaction.tran_amt}
-          </p>
-        );
-      })}
+      <TransactionList transactionList={transactionList}></TransactionList>
     </div>
   );
 };
