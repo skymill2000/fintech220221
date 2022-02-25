@@ -9,6 +9,7 @@ const BalancePage = () => {
   console.log(useLocation());
   useEffect(() => {
     getUserBalance();
+    getTrasactionList();
   }, []);
 
   const { fintechUseNo } = queryString.parse(useLocation().search);
@@ -47,7 +48,32 @@ const BalancePage = () => {
     });
   };
 
-  const getTrasactionList = () => {};
+  const getTrasactionList = () => {
+    const accessToken = localStorage.getItem("accessToken");
+    const sendData = {
+      bank_tran_id: genTransId(),
+      fintech_use_num: fintechUseNo,
+      inquiry_type: "A",
+      inquiry_base: "D",
+      from_date: "20190101",
+      to_date: "20190101",
+      sort_order: "D",
+      tran_dtime: "20220224154030",
+    };
+
+    const option = {
+      method: "GET",
+      url: "/v2.0/account/transaction_list/fin_num",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      params: sendData, //object
+    };
+
+    axios(option).then(({ data }) => {
+      settransactionList(data.res_list);
+    });
+  };
 
   return (
     <div>
@@ -57,7 +83,13 @@ const BalancePage = () => {
         fintechNo={balance.fintech_use_num}
         balance={balance.balance_amt}
       ></BalanceCard>
-      {/* 프프로로그그램램 */}
+      {transactionList.map((transaction) => {
+        return (
+          <p>
+            {transaction.print_content} / {transaction.tran_amt}
+          </p>
+        );
+      })}
     </div>
   );
 };
