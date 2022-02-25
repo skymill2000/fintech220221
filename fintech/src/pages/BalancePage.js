@@ -13,6 +13,7 @@ const BalancePage = () => {
 
   const { fintechUseNo } = queryString.parse(useLocation().search);
   const [balance, setbalance] = useState("");
+  const [transactionList, settransactionList] = useState([]);
 
   console.log(fintechUseNo);
 
@@ -46,6 +47,8 @@ const BalancePage = () => {
     });
   };
 
+  const getTrasactionList = () => {};
+
   return (
     <div>
       <HeaderWhite title="잔액조회"></HeaderWhite>
@@ -54,6 +57,7 @@ const BalancePage = () => {
         fintechNo={balance.fintech_use_num}
         balance={balance.balance_amt}
       ></BalanceCard>
+      {/* 프프로로그그램램 */}
     </div>
   );
 };
